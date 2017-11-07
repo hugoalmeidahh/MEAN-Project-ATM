@@ -7,6 +7,9 @@ const ATM = mongoose.model('atm',{
 		minLength:1,
 		trim:true
 	},
+	notasDisponiveis:{
+		
+	}
 	completed:{
 		type:Boolean,
 		default:false
