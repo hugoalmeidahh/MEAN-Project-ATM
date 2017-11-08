@@ -15,6 +15,10 @@ module.exports = {
 
 	saldoAtm(){
 		return ATMServices().obterSaldoAtm();
+	},
+
+	initAtm(){
+		return ATMServices().inicializaAtm();
 	}
 
 };

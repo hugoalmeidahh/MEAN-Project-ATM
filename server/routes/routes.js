@@ -4,7 +4,7 @@ const atmCtrl = require('../controllers/atm')
 
 module.exports = function(app,db){
 
-	app.post('/api/obterMinimoNotas', (req, res) => {
+	app.post('/api/obterMinimoNotas', (req, res, next) => {
 		atmCtrl.obterMinimoNotas(req.body.valorRequisitado).then((data) => {
 		    res.send({data})
 		}, (e) => {
@@ -13,7 +13,7 @@ module.exports = function(app,db){
 		});
 	});
 
-	app.post('/api/fazerDeposito', (req, res) => {
+	app.post('/api/fazerDeposito', (req, res,next ) => {
 		atmCtrl.depositoAtm(req.body.valorDeposito).then((data) => {
 		    res.send({data})
 		}, (e) => {
@@ -22,7 +22,7 @@ module.exports = function(app,db){
 		});
 	});
 
-	app.post('/api/fazerSaque', (req, res) => {
+	app.post('/api/fazerSaque', (req, res, next) => {
 		atmCtrl.saqueAtm(req.body.valorSaque).then((data) => {
 		    res.send({data})
 		}, (e) => {
@@ -31,8 +31,17 @@ module.exports = function(app,db){
 		});
 	});
 
-	app.get('/api/obterSaldoAtm', (req,res)=>{
-		atmCtrl.saldoAtm(req.body.valorSaque).then((data) => {
+	app.get('/api/obterSaldoAtm', (req,res, next)=>{
+		atmCtrl.saldoAtm().then((data) => {
+		    res.send({data})
+		}, (e) => {
+		  	console.log(e);
+		    res.status(400).send(e);
+		});
+	});
+
+	app.get('/api/initAtm', (req,res, next)=>{
+		atmCtrl.initAtm().then((data) => {
 		    res.send({data})
 		}, (e) => {
 		  	console.log(e);

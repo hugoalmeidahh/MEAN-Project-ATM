@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700">
+    
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> classes de paginação adicionados ao bootstrap-modifications -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/dropzone/dist/dropzone.css">
+    <link rel="stylesheet" href="bower_components/ng-dropzone/dist/ng-dropzone.min.css">
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/type.css">
+    <link rel="stylesheet" href="styles/utils.css">
+    <link rel="stylesheet" href="styles/validation.css">
+    <link rel="stylesheet" href="styles/bootstrap-modifications.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="atm" ng-controller="RootCtrl as vm" ng-init="vm.init()" ng-class="{'hide-navbar':exibirLogin}">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- <ng-include src="'templates/partials/navbar-top.html'" ng-if="!exibirLogin"></ng-include> -->
+    <div class="container-fluid" ng-view="" style="height:100%"></div>
+    
+    <div class="modal-overlay waiting" ng-if="waiting"><div class="modal-scroll-wrapper">
+      <div class="table-display vcenter-content"><div class="table-cell">
+        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+      </div></div>
+    </div></div>
+
+    <!-- Google Analytics Here -->
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js js/core.js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="locale/angular-locale_pt-br.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/plugins.js -->
+    <script src="bower_components/ngToast/dist/ngToast.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/moment/locale/pt-br.js"></script>
+    <script src="bower_components/ngMask/dist/ngMask.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>  <!-- Load ui-bootstrap.min.js before ui-bootstrap-tpls.js to avoid template errors-->
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+    <script src="bower_components/satellizer/dist/satellizer.min.js"></script>
+    <script src="bower_components/dropzone/dist/dropzone.js"></script>
+    <script src="bower_components/ng-dropzone/dist/ng-dropzone.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/env_config.js"></script>
+    <script src="js/root_controller.js"></script>
+    <script src="js/http_interceptor.js"></script>
+    
+    <!-- Directives -->
+    <script src="js/directives/ngFocus.js"></script>
+    <script src="js/directives/returnTrigger.js"></script>
+
+    <!-- Services -->
+    <script src="templates/login/login-service.js"></script>
+    <script src="templates/atm/atm-service.js"></script>
+    
+    <!-- Controlers -->
+    <script src="templates/login/login-controller.js"></script>
+    <script src="templates/atm/atm-controller.js"></script>
+    <script src="templates/atm/format-directive.js"></script>
+    <!-- Utils -->
+
+    <script src="js/utils/form-utils.js"></script>
+    <script src="js/utils/inscricao-filter.js"></script>
+    <script src="js/utils/loading-manager.js"></script>
+    <script src="js/utils/modal-manager.js"></script>
+
+    <!-- endbuild -->
+</body>
+</html>

@@ -57,6 +57,7 @@ const atmService = () =>{
  	const obterSaldoAtm = () =>{
  		return new Promise((resolve,reject) => {
  			obterAtm().then((atm) => {
+ 				console.log(atm)
 				return resolve({saldoAtual:atm[0].saldoTotal, atm:{_id:atm[0]._id}});
 			},(e) => {
 				return reject(e); 
@@ -64,7 +65,17 @@ const atmService = () =>{
  		});
  	};
 
- 	return { obterMinimoNotas, depositoAtm, saqueAtm, obterSaldoAtm };
+ 	const inicializaAtm = () =>{
+ 		return new Promise((resolve,reject) => {
+ 			obterAtm().then((atm) => {
+				return resolve(atm[0]);
+			},(e) => {
+				return reject(e); 
+			});
+ 		});
+ 	};
+
+ 	return { obterMinimoNotas, depositoAtm, saqueAtm, obterSaldoAtm, inicializaAtm };
 };
 
 module.exports = atmService;
@@ -74,7 +85,7 @@ count = (value) =>{
 };
 
 obterNotasAtm = () =>{
-	return [20,50,100];
+	return [1,5,10,20,50,100];
 };
 
 obterAtm = () =>{
@@ -153,7 +164,7 @@ fnSacarAtm = (valorSaque) =>{
 	return new Promise((resolve, reject) => {
 		obterAtm().then((atm) => {
 			if(atm[0].saldoTotal < valorSaque) return reject("Valor de saque indisponivel, valor em conta R$:" + (atm[0].saldoTotal/100).toFixed(2));
-			if(atm[0].saldoTotal == 0) return reject("Sua conta esta em R$" + (atm[0].saldoTotal/100).toFixed(2) + ", Não pode realizar essa operação." )
+			if(atm[0].saldoTotal == 0) return reject("Sua conta esta em R$" + (atm[0].saldoTotal).toFixed(2) + ", Não pode realizar essa operação." )
 			
 			atm[0].saldoTotal -= parseInt(valorSaque);
 			

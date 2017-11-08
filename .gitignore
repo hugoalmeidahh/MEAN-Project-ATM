@@ -1,3 +1,9 @@
-
+frontend/package-lock.json
 node_modules
 /node_modules/*
+
+frontend/package-lock.json
+frontend/node_modules
+frontend/.tmp/
+frontend/bower_components/
+frontend/dist/

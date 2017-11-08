@@ -1,0 +1,39 @@
+<div class="container" style="height:100%" ng-init="vm.init()">
+  <div class="table-display vcenter-content">
+    <div class="table-cell">
+      <div class="row text-center justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+          <div class="inline">
+            <img src="images/logo.png" style="width:100%;height:auto;">
+          </div>
+          <div class="vgap-20"><!--  Vertical Gap 20px --></div>
+          <p class="no-margin grey-text" style="font-size:20px">Entre com a sua conta de usuário</p>
+          <div class="vgap-45"><!--  Vertical Gap 20px --></div>
+          <div>
+            <form name="vm.formLogin">
+              <div class="error-wrapper">
+                <input type="email" name="email" ng-model="vm.email" class="form-control" placeholder="Email" required ng-focus return-trigger="[ng-model='vm.senha'],focus"/>
+                <div class="error-msg text-left" ng-show="vm.formLogin.email.$dirty &&
+                                                          vm.formLogin.email.$error.required &&
+                                                          !vm.formLogin.email.$focused">Email - Preenchimento obrigatório</div>
+                <div class="error-msg text-left" ng-show="vm.formLogin.email.$error.email &&
+                                                            vm.formLogin.email.$dirty &&
+                                                            !vm.formLogin.email.$focused">Email inválido</div>
+              </div>
+              <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+              <div class="error-wrapper">
+                <input type="password" name="senha" ng-model="vm.senha" class="form-control" placeholder="Senha" required ng-focus return-trigger="[ng-click='vm.login()'],click"/>
+                <div class="error-msg text-left" ng-show="vm.formLogin.senha.$dirty &&
+                                                          vm.formLogin.senha.$error.required &&
+                                                          !vm.formLogin.senha.$focused">Senha - Preenchimento obrigatório</div>
+              </div>
+              <div class="vgap-45"><!--  Vertical Gap 20px --></div>
+              <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.login()">Entrar</button>
+              <div class="vgap-60"><!--  Vertical Gap 60px --></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

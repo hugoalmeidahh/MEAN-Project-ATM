@@ -1,0 +1,27 @@
+{
+  "name": "atm",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-route": "^1.6.5",
+    "angular-resource": "^1.6.5",
+    "bootstrap": "v4.0.0-beta",
+    "ngMask": "angular-mask#^3.1.1",
+    "font-awesome": "^4.7.0",
+    "angular-sanitize": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-bootstrap": "^2.5.0",
+    "ngToast": "ngtoast#^2.0.0",
+    "angucomplete-alt": "^3.0.0",
+    "moment": "^2.18.1",
+    "satellizer": "^0.15.5",
+    "tether": "^1.4.0",
+    "ng-dropzone": "ngdropzone#^2.0.2",
+    "dropzone": "^5.1.1"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": ">=1.6.0",
+    "angular-sanitize": "^1.6.5",
+    "dropzone": "^5.1.1"
+  }
+}
