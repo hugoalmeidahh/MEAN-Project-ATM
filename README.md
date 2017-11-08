@@ -68,29 +68,4 @@ fazerSaque       | POST		| retorna o valor sacado
 Qualquer dúvidas, meu email é hhalmeida3@gmail.com
 Espero poder ajudar mais pessoas , o projeto está simples e fácil entendimento.
 
-Obrigado, Hugo Almeida# MEAN-Project-ATM
-
-Endpoints::
-
-/obterMinimoNotas 
-POST::
-	return:{
-		minimo:number
-	}
-
-
-/deposito
-POST::
-	return:{
-		valorDepositado:number,
-		saldoAtual:number
-	}
-
-
-/saque
-POST::
-	return {
-		qtdNotas:number,
-		valorSacado:number,
-		saldoAtual:number 
-	}
+Obrigado, Hugo Almeida
