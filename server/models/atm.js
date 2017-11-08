@@ -1,20 +1,9 @@
 const mongoose = require('mongoose');
 
 const ATM = mongoose.model('atm',{
-	numeroAtm:{
-		type:String,
-		require:true,
-		minLength:1,
-		trim:true
-	},
-	completed:{
-		type:Boolean,
-		default:false
-	},
-	completedAt:{
-		type:Number,
-		default:null
-	}
+	saldoTotal:{type:Number},
+	notasDisponiveis:{type:Array, default:[1,2,5,10,20,50,100]},
+	atualizadoEm:{type:Date, default:new Date()}
 });
 
-module.exports = {Todo};
+module.exports = {ATM};
