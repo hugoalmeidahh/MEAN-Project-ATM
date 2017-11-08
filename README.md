@@ -19,19 +19,6 @@ Nessa stack foi usado as seguintes tecnologias e implementada algumas configura�
 > - AngularJS : Desenvolvimento do frontend. 
 > No caso do angular foi usado o **Bower** e **Grunt**
 
-#### <i class="icon-hdd"></i> Instalações
-**Backend** :
-
-	$ npm install
-   
-
-
-----------
-**Frontend** :
-
-    $cd frontend
-    $npm install
-    $bower install
    
 ----------
 
