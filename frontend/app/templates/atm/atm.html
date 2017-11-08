@@ -1,0 +1,261 @@
+<style type="text/css">
+    
+    /* Font ROBOTO */
+    .roboto{
+        font-family: 'Roboto', sans-serif !important; 
+    }
+
+    ul{list-style-type: none;}
+
+    .btn-label {position: relative;left: -12px;display: inline-block;padding: 6px 12px;background: rgba(0,0,0,0.15);border-radius: 3px 0 0 3px;}
+    .btn-labeled {padding-top: 0;padding-bottom: 0;}
+    .input-group { margin-bottom:10px; }
+    .separator { border-right: 1px solid #dfdfe0; }
+
+    #gradient {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feffff+0,ddf1f9+31,a0d8ef+62 */
+        background: #feffff; /* Old browsers */
+        background: -moz-linear-gradient(left, #feffff 0%, #ddf1f9 31%, #a0d8ef 62%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #feffff 0%,#ddf1f9 31%,#a0d8ef 62%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #feffff 0%,#ddf1f9 31%,#a0d8ef 62%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=1 ); /* IE6-9 */
+        border: 1px solid #f2f2f2;
+        padding: 20px;
+    }
+
+    #hits {
+        border-right: 1px solid white;
+        border-left: 1px solid white;
+        vertical-align: middle;
+        padding-top: 10px;
+        font-size: 17px;
+    }
+
+    #fan {
+        vertical-align: middle;
+        padding-top: 10px;
+        font-size: 17px;
+    }
+
+    .pb-product-details-fa > span {
+        padding-top: 35px;
+    }
+
+    .padding-4-2em{
+        padding: 4em 2em;
+    }
+    .padding-1em{
+        padding: 1em;
+        margin: 1em;
+    }
+
+    .padding-top-20px{    padding-top: 20px;}
+
+    .mydiv{margin: 5px !important;
+    display: inline;}
+
+    .op{    border: 1px dashed lightgray;
+    text-align: center !important;
+    padding: 1em;
+    font-size: 22px;}
+    .full-width{width: 100%;}
+</style>
+
+<section class="roboto" style="height:100%;"  ng-init="vm.init()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2">
+                <div class="row" id="gradient">
+                    <div class="col-md-4">
+                        <img src="images/atm_cx_eletronico.jpg" class="img-responsive">
+                    </div>
+                    <div class="col-md-8" id="overview">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <ul class="pb-product-details-ul padding-top-20px ">
+                                    <li><p class="fa fa-microchip">&nbsp;ATM Nº:{{vm.atm._id}}</p></li>
+                                    <li><p class="fa fa-calendar">&nbsp;Ultimo Acesso: {{vm.atm.atualizadoEm|date:'dd/MM/yyyy - HH:mm'}}</p></li>
+                                    <li><p class="fa fa-bluetooth-b">&nbsp;Conectado, ATM Online</p></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-3 col-md-3 text-center" id="hits">
+                                <p>Notas Disponiveis</p>
+                                <div class="mydiv" ng-repeat="notas in vm.atm.notasDisponiveis">
+                                    <span class="fa  fa-money">&nbsp;{{notas}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-3 col-md-3 text-center" id="fan">
+                                <p>O que deseja fazer?</p>
+                                <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.setOperacao(1)">Deposito</button>
+                                <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.setOperacao(2)">Saque</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 col-md-3 pb-product-details-fa">
+                                <span class="fa fa-usd fa-lg"></span>
+                                <h3><strong>{{vm.atm.saldoTotal|currency:"R$"}}</strong></h3>
+                                <p>saldo atual</p>
+                            </div>
+                           <!--  <div class="col-xs-3 col-md-3 pb-product-details-fa">
+                                <span class="fa fa-camera fa-lg"></span>
+                                <h3><strong>12 MP</strong></h3>
+                                <p>2160p</p>
+                            </div>
+                            <div class="col-xs-3 col-md-3 pb-product-details-fa">
+                                <span class="fa fa-microchip fa-lg"></span>
+                                <h3><strong>4GB RAM</strong></h3>
+                                <p>Exynos 8890</p>
+                            </div>
+                            <div class="col-xs-3 col-md-3 pb-product-details-fa">
+                                <span class="fa fa-battery-4 fa-lg"></span>
+                                <h3><strong>3600mAH</strong></h3>
+                                <p>Li-ion</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row padding-1em op" ng-if="vm.op == 0"><p class="full-width text-center"> Escolha uma operação DEPOSITO OU SAQUE</p></div>
+
+        <div class="row padding-1em op" ng-if="vm.op == 'depositado'">
+            <p class="full-width text-center">Operação de DEPOSITO realizada com sucesso, Obrigado!</p>
+            <p class="full-width text-center">Valor depositado : {{vm.valorDepositado|currency:"R$"}}</p>
+
+        </div>
+
+        <div class="row padding-1em op" ng-if="vm.op == 'sacado'"> 
+            <p class="full-width text-center">Operação de SAQUE realiada com Sucesso.</p>
+            <p class="full-width text-center">Valor sacado : {{vm.valorSacado|currency:"R$"}}</p>
+            <p class="full-width text-center">Atenção, você recebeu {{vm.numeroNotas}} {{vm.numeroNotas>1 ? 'notas':'nota'}} referente ao valor sacado.</p>
+        </div>
+
+        <div class="row padding-1em op " ng-if="vm.op == 'erro'"><p class="full-width text-center">{{vm.mensagemErro}}</p></div>
+
+        <div class="row  padding-1em" ng-if="vm.op == 1">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Realizar transações de deposito</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-7 col-sm-7 col-md-7 separator social-login-box"> <br />
+                                <p>Para realizar o deposito, entre com o valor desejado e clique em Realizar Deposito.</p>
+                                <!-- <p>Será aberta uma janela de confirmação do deposito, se tiver certeza clique em confirmar.</p> -->
+                                <p>Caso não tenha certeza, ou não se sinta seguro clique em cancelar.</p>
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-5 login-box padding-4-2em">
+                                <form role="form">
+                                    <p>Informe o valor para deposito</p>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-usd"></span></span>
+                                        <input type="text" class="form-control" ng-model="vm.valorDeposito" format="currency"/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-7 col-sm-7 col-md-7">
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <button type="button" class="btn btn-labeled btn-success" ng-click="vm.realizarDeposito()">
+                                    <span class="btn-label"><i class="fa fa-check fa-lg "></i></span>Realizar Deposito</button>
+                                <button type="button" class="btn btn-labeled btn-danger" ng-click="vm.op = 0">
+                                    <span class="btn-label"><i class="fa fa-times fa-lg"></i></span>Cancel Operação</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  padding-1em" ng-if="vm.op == 2">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Realizar trasações de saque </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-7 col-sm-7 col-md-7 separator social-login-box"> <br />
+                                <p>Para realizar o saque, entre com o valor desejado e clique em Realizar Saque.</p>
+                                <!-- <p>Será aberta uma janela de confirmação do deposito, se tiver certeza clique em confirmar.</p> -->
+                                <p>Caso não tenha certeza, ou não se sinta seguro clique em cancelar.</p>
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-5 login-box padding-4-2em">
+                                <form role="form">
+                                    <p>Informe o valor para saque</p>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="fa fa-usd"></span></span>
+                                        <input type="text" class="form-control" ng-model="vm.valorSaque" format="currency"/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-xs-7 col-sm-7 col-md-7">
+                            </div>
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <button type="button" class="btn btn-labeled btn-success" ng-click="vm.realizarSaque()">
+                                    <span class="btn-label"><i class="fa fa-check fa-lg "></i></span>Realizar Saque</button>
+                                <button type="button" class="btn btn-labeled btn-danger" ng-click="vm.op = 0">
+                                    <span class="btn-label"><i class="fa fa-times fa-lg"></i></span>Cancel Operação</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<!--Modal confirma operação-->
+<!--  -->
+<div class="modal-display" ng-show="vm.showDeletarPopup.isVisible">
+    <div class="table-display valign-top modal-window mt-5">
+        <div class="table-cell">
+            <div class="container" style="width: 400px;">
+                <div class="row justify-content-center">
+                    <div class="col mx-auto">
+                        <div class="popup-window popup-window-escola">
+                            <div class="m-1">
+                                <div class="table-display vcenter-content">
+                                    <div class="table-cell">
+                                        <div class="font-size-22 orange-text arial-narrow uppercase page-title mb-2">Confirmar Operação</div>
+                                    </div>
+                                    <div class="table-cell hand-cursor text-right nowrap fit-content" ng-click="vm.showDeletar()">
+                                        <div class="close-button"><i class="fa fa-times font-size-20 darkgrey-text"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-content orange" style="max-height:405px;margin: 0;padding: 15px;">
+                                <div class="table-display">
+                                    <div class="table-cell pt-2 pl-1">
+                                      <span class="arial-narrow">Tem certeza que deseja {{vm.operacao}} de {{vm.valorOperacao}}?</span>
+                                    </div>
+                                </div>
+                                <div class="table-display vcenter-content mt-3 mb-1">
+                                    <div class="table-cell text-right">
+                                        <button type="button" class="command-button" title="Cancelar" ng-click="vm.showDeletar()">Confirmar
+                                        </button>
+                                        <button type="button" class="command-button mr-1" title="Excluir" ng-click="vm.removerImageEspelho(vm.showDeletarPopup.espelho)">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+</div>

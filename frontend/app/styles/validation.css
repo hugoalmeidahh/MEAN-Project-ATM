@@ -1,0 +1,61 @@
+/* Validation
+----------------------------------------------- */
+.required:after{
+  content: " *";
+  color: rgb(221, 0, 0);
+  vertical-align:top;
+}
+
+span.error-msg{
+  color:rgb(221, 0, 0);
+  padding:5px 1px;
+  font-size:11px;
+  vertical-align:bottom;
+}
+
+div.error-msg{
+  color:rgb(221, 0, 0);
+  padding:5px 1px;
+  font-size:11px;
+}
+
+.form-group+span.error-msg,
+.form-group+div.error-msg{
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+input.ng-invalid.ng-dirty:not(:focus),
+textarea.ng-invalid.ng-dirty:not(:focus),
+select.ng-invalid.ng-dirty:not(:focus){
+  color: #b94a48;
+  border-color: #F5AEAC;
+  background-color: #fffafa;
+  -webkit-box-shadow: inset 0 0 4px #FCE7E7;
+     -moz-box-shadow: inset 0 0 4px #FCE7E7;
+          box-shadow: inset 0 0 4px #FCE7E7;
+}
+
+input.ng-invalid.ng-dirty:not(:focus)::-webkit-input-placeholder,
+textarea.ng-invalid.ng-dirty:not(:focus)::-webkit-input-placeholder,
+select.ng-invalid.ng-dirty:not(:focus)::-webkit-input-placeholder {
+   color: #ec8a88;
+}
+
+input.ng-invalid.ng-dirty:not(:focus),
+textarea.ng-invalid.ng-dirty:not(:focus),
+select.ng-invalid.ng-dirty:not(:focus):-moz-placeholder { /* Firefox 18- */
+   color: #ec8a88;
+}
+
+input.ng-invalid.ng-dirty:not(:focus)::-moz-placeholder,
+textarea.ng-invalid.ng-dirty:not(:focus)::-moz-placeholder,
+select.ng-invalid.ng-dirty:not(:focus)::-moz-placeholder {  /* Firefox 19+ */
+   color: #ec8a88;
+}
+
+input.ng-invalid.ng-dirty:not(:focus):-ms-input-placeholder ,
+textarea.ng-invalid.ng-dirty:not(:focus):-ms-input-placeholder ,
+select.ng-invalid.ng-dirty:not(:focus):-ms-input-placeholder {
+   color: #ec8a88;
+}

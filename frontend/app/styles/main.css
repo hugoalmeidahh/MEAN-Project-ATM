@@ -1,0 +1,269 @@
+/* ----------------------- SUMMARY -----------------------
+
+
+
+*/
+
+/* General
+----------------------------------------------- */
+html,body{
+  height:100%;
+  min-height:100%;
+  background-color:transparent;
+  color:#777;
+}
+
+a,
+a:hover,
+a:active,
+a:visited{
+  color:#00ACEA;
+}
+
+img{max-width:100%;}
+
+.poly-bg{
+  padding:15px;
+  background: url(/images/bg/bg2.png) #FFFFFF no-repeat top center;
+}
+
+.bg2{background:#c1dae6 url(/images/bg/bg_all_2.gif);}
+.bg3{background:#c1dae6 url(/images/bg/bg_all_3.gif);}
+
+.hand-cursor{cursor:pointer}
+
+.visible-hover{display:none;}
+.hover-parent:hover .visible-hover-inline-block{display:inline-block;}
+
+.round-box{
+  background-color:#FAFAFA;
+  padding:10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -goog-ms-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.dashed-message{
+  text-align:center;
+  padding:10px;
+  border:2px dashed #DCDCDC;
+}
+
+/* 
+----------------------------------------------- */
+
+.row.grid  > div{
+  margin-bottom:15px;
+}
+
+.dates .hover-box.placeholder{height:157px;padding-top: 45px;}
+.tests .hover-box.placeholder{height:139px;padding-top: 35px;padding-bottom:10px}
+.featured .hover-box.placeholder{height:170px;padding-top: 50px;}
+.anos .hover-box.placeholder{height:124px;padding-top: 30px;padding-bottom:10px}
+
+.placeholder{
+  height:100px;
+  text-align:center;
+  border: 2px dashed #C3C3C3;
+  color: #00ACEA;
+  
+}
+
+.placeholder.action{color:#5295D0!important;cursor:pointer!important;}
+
+.box, .hover-box{
+  position:relative;
+  color:#7C7C7C;
+  padding:10px;
+  background-color: rgba(244, 244, 244, 0.4);
+  box-shadow: 0 1px 3px rgb(234, 234, 234);
+}
+
+.box, .hover-box:hover{background-color: rgba(255, 255, 255, 0.8);}
+.hover-box{cursor:pointer;}
+
+.tests .hover-box,
+.anos .hover-box{padding-bottom:34px;}
+
+.gabarito .hover-box{padding:5px;padding-bottom:39px;}
+
+.box .text-area,
+.hover-box .text-area{
+  color:#949494;
+  background-color: rgba(230, 230, 230, 0.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.box .text-area .text-area-button:hover,
+.hover-box .text-area .text-area-button:hover{
+  color:#5295D0;
+  background-color: rgba(240, 240, 240, 0.6)
+}
+
+.box:hover{background-color: rgba(255, 255, 255, 0.8);}
+.box:hover .text-area,
+.hover-box:hover .text-area{background-color: rgba(245, 245, 245, 0.6);}
+
+.featured-img{
+  height: 170px;
+  overflow: hidden;
+  text-align:center;
+}
+
+.featured-img > img{
+  height: 100%; width:auto;
+}
+
+.external-link{
+  white-space:pre;
+  word-wrap:break-word;
+}
+
+/* List
+----------------------------------------------- */
+
+.pr-list{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.pr-list li .table-cell{padding:6px;}
+.pr-list li {border:1px solid transparent;}
+.pr-list li:hover {border:1px dashed #DCDCDC;background-color:#FAFAFA;}
+
+.notFoundMirror {
+    border: 1px dashed lightgray;
+    height: 40px;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    line-height: 40px;
+    list-style: none;
+}
+
+
+/* Modal
+----------------------------------------------- */
+.modal-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  background-color:rgba(27, 60, 111, 0.2)
+}
+
+.modal-overlay.waiting{
+  background-color:rgba(255, 255, 255, 0.3)
+}
+
+.modal-overlay .modal-scroll-wrapper{height: 100%;overflow-y: auto;}
+
+.modal-window{
+  padding:0;
+  box-shadow: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Modal > Bootstrap override
+----------------------------------------------- */
+
+.modal-header{
+  min-height: 48px;
+  padding: 8px;
+  border-bottom: none;
+  position:relative;
+}
+
+.modal-content{
+  background-color: #F4F4F4;
+  border: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -goog-ms-border-radius: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+}
+
+/* Modal > Header
+----------------------------------------------- */
+
+.modal-header .close-button{
+  cursor:pointer;
+  color: rgba(80, 80, 80, 0.5);
+}
+
+.modal-header .close-button:hover{color: rgba(255, 255, 255, 0.7);}
+
+.modal-header{
+  padding:8px 15px;
+  background-color: #EDEDED;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.modal-window .sub-header{
+  background-color: rgba(244, 244, 244, 0.4);
+  padding:8px 5px;
+}
+
+.modal-content{
+  padding:15px;
+}
+
+.modal-footer{
+  padding:10px;
+}
+
+
+
+
+
+.pr-tabs .nav.nav-tabs,
+.pr-tabs .nav.nav-tabs li{
+  border:none;
+}
+
+.pr-tabs .nav.nav-tabs li a{
+  background-color:rgba(244, 244, 244, 0.4);
+  border: 1px solid rgb(242, 242, 242);
+  border-bottom:none;
+  margin-bottom:1px;
+  margin-left:-1px;
+  color:rgb(150, 150, 150);
+  padding: 10px 15px;
+}
+
+.pr-tabs .nav.nav-tabs li.active a{
+  background-color:rgba(255, 255, 255, 0.8);
+  color:rgb(95, 132, 229);
+}
+
+.pr-tabs .nav.nav-tabs li a:hover{
+  background-color:rgba(255, 255, 255, 0.8);
+  color:rgb(95, 132, 229);
+}
+
+.pr-tabs .tab-content{background-color: rgba(255, 255, 255, 0.8);box-shadow: 0 1px 3px rgb(234, 234, 234);padding: 15px;}
+
+.popup-window-escola {
+    margin: auto !important;
+    opacity: 1 !important;
+    padding: 15px;
+    background-color: #E5EAED !important;
+    border: 1px solid #D8D8D8 !important;
+    box-shadow: 0px 0px 20px #D6D6D6 !important;
+    position: relative;
+}
+
+.popup-footer {
+  padding-top: 10px;
+  text-align: center;
+}
